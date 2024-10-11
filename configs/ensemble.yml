@@ -1,0 +1,32 @@
+# E:\kokoc\configs\ensemble.yml
+ensemble:
+  method: 'dynamic'
+  optimize_weights: True
+  top_k: 25  # Ensuring top_k is set to 25
+  metrics:
+    - recall@25
+    - ndcg@25
+    - auc
+
+  # Hyperparameters for ensemble optimization
+  hyperparameters:
+    weight_lgbm:
+      type: float
+      low: 0.0
+      high: 1.0
+    weight_catboost:
+      type: float
+      low: 0.0
+      high: 1.0
+    weight_xgboost:
+      type: float
+      low: 0.0
+      high: 1.0
+    weight_nn:
+      type: float
+      low: 0.0
+      high: 1.0
+    weight_graph:
+      type: float
+      low: 0.0
+      high: 1.0

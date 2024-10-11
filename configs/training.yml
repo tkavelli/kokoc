@@ -1,0 +1,25 @@
+# configs/training.yml
+
+training:
+  optimizer: 'adam-mini' 
+  learning_rate: 0.001
+  betas: [0.9, 0.999]
+  eps: 1e-08
+  weight_decay: 0.01
+  model_sharding: True
+  batch_size: 512
+  max_epochs: 30
+  lr_scheduler:
+    type: 'StepLR'
+    step_size: 10
+    gamma: 0.5
+  warmup_epochs: 5
+  dropout: 0.3
+  early_stopping_rounds: 10
+  verbose_eval: 100
+  pin_memory: true
+  num_workers: 16  # based on 16-core CPU
+  # For neural network
+  learning_rate_nn: 0.001
+  # For graph model
+  learning_rate_gcn: 0.005

@@ -1,0 +1,4 @@
+# configs/smote.yml
+
+smote:
+  random_state: 42

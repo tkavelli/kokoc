@@ -1,0 +1,25 @@
+Add-Content .gitignore "# Virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Data files
+data/
+
+# Model files
+models/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Output files
+outputs/
+
+# Wandb files
+wandb/
+
+# OS-specific files
+.DS_Store
+Thumbs.db"

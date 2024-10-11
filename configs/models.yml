@@ -1,0 +1,85 @@
+# configs/models.yml
+
+advanced_transformer:
+  num_users: 100000
+  num_products: 50000
+  embedding_dim: 256
+  n_heads: 8
+  n_layers: 4
+  dropout: 0.1
+  learning_rate: 0.001
+  warmup_steps: 1000
+  max_steps: 100000
+  batch_size: 128
+  max_epochs: 50
+
+advanced_gat:
+  in_feats: 2
+  hidden_size: 64
+  num_heads: [8, 8, 1]
+  num_layers: 3
+  num_classes: 1
+  dropout: 0.1
+  learning_rate: 0.001
+  batch_size: 10000
+  max_epochs: 100
+
+gradient_boosting:
+  lgbm:
+    objective: 'binary'
+    metric: 'auc'
+    boosting_type: 'gbdt'
+    device: 'gpu'
+    gpu_platform_id: 0
+    gpu_device_id: 0
+    verbose: -1
+    learning_rate: 0.05
+    num_leaves: 31
+    max_depth: -1
+    min_child_samples: 20
+    subsample: 0.8
+    colsample_bytree: 0.8
+  catboost:
+    iterations: 1000
+    learning_rate: 0.05
+    depth: 6
+    l2_leaf_reg: 3
+    loss_function: 'Logloss'
+    eval_metric: 'AUC'
+    random_seed: 42
+    verbose: False
+    task_type: 'GPU'
+    devices: '0'
+  xgboost:
+    objective: 'binary:logistic'
+    eval_metric: 'auc'
+    learning_rate: 0.05
+    n_estimators: 1000
+    max_depth: 6
+    min_child_weight: 1
+    subsample: 0.8
+    colsample_bytree: 0.8
+    random_state: 42
+    tree_method: 'gpu_hist'
+    gpu_id: 0
+
+# New section for hyperparameter optimization
+hyperparameters:
+  transformer:
+    embedding_dim:
+      type: int
+      low: 64
+      high: 256
+    n_heads:
+      type: int
+      low: 4
+      high: 12
+    n_layers:
+      type: int
+      low: 2
+      high: 6
+  learning_rate:
+    type: float
+    low: 1e-5
+    high: 1e-2
+    log: true

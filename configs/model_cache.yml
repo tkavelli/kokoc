@@ -1,0 +1,4 @@
+# E:\kokoc\configs\model_cache.yml
+model_cache:
+  enable: true
+  path: "models/cache/"

@@ -1,0 +1,7 @@
+# configs/output.yml
+
+output:
+  model_dir: 'models'
+  plots_dir: 'outputs/plots'
+  predictions_dir: 'outputs/predictions'
+  submission_file: 'outputs/predictions/submission.csv'  # New entry for the submission file

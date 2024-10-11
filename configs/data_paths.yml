@@ -1,0 +1,25 @@
+# configs/data_paths.yml
+data_paths:
+  raw:
+    stokman_catalog_preprocessed: 'data/raw/stokman_catalog_preprocessed.pq'
+    train_actions: 'data/raw/train_actions.pq'
+    vectors: 'data/raw/vectors.npz'
+    catalog_vector_mapping: 'data/raw/catalog_vector_mapping.pq'
+  interim:
+    encoders:
+      user: 'data/interim/encoders/user_encoder.pkl'
+      product: 'data/interim/encoders/product_encoder.pkl'
+    imputer: 'data/interim/imputer.pkl'
+    scaler: 'data/interim/scaler.pkl'
+  processed:
+    train_data_resampled: 'data/processed/train_data_resampled.parquet'
+    train_data_nn: 'data/processed/train_data_nn.parquet'
+    test_data: 'data/processed/test_data.parquet'
+  models:
+    lgbm: 'models/lgbm_model.txt'
+    catboost: 'models/catboost_model.cbm'
+    xgboost: 'models/xgboost_model.json'
+    transformer: 'models/transformer_model.ckpt'
+    gat: 'models/gat_model.ckpt'
+  cache:
+    general_cache: 'models/cache/general'

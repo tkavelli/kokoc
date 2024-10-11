@@ -1,0 +1,28 @@
+# preprocessing.yml
+
+preprocessing:
+  date_format: '%Y-%m-%d %H:%M:%S'
+  relevant_actions: [0, 1, 2, 5]
+  categorical_features: ['user_id', 'product_id']
+  target_column: 'is_purchase'
+  features_to_drop: ['date', 'action', 'user_id', 'product_id']
+  feature_columns:
+    - 'user_id_encoded'
+    - 'product_id_encoded'
+    - 'hour'
+    - 'day_of_week'
+    - 'day'
+    - 'month'
+    - 'is_weekend'
+  imputer_strategy: 'mean'
+
+  embedding_generation:
+    method: 'word_aggregation'
+    source: 'vectors.npz'
+    aggregation: 'mean'
+
+  # New parameters for selecting top 3000 users
+  user_selection:
+    method: 'top_n'  # Method to select users
+    n_users: 3000    # Number of users to select
+    criteria: 'purchase_probability'  # Criteria for selection

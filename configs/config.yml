@@ -1,0 +1,27 @@
+# configs/config.yml
+
+data_paths: !include data_paths.yml
+preprocessing: !include preprocessing.yml
+split: !include split.yml
+smote: !include smote.yml
+training: !include training.yml
+models: !include models.yml
+ensemble: !include ensemble.yml
+logging: !include logging.yml
+output: !include output.yml
+mlflow: !include mlflow.yml
+model_cache: !include model_cache.yml
+
+optimization:
+  use_optuna: true
+  n_trials: 100
+  direction: maximize
+
+batch_size_adaptation:
+  enabled: true
+  safety_factor: 0.9
+  default_batch_size: 512
+  estimated_memory_per_sample: 0.05
+
+prediction:
+  num_users: 3000
